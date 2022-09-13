@@ -1,0 +1,7 @@
+__pycache__/
+*.swp
+ctags
+tags
+Trainer.log
+pisss.egg-info/
+build/

@@ -1,0 +1,6 @@
+[submodule "deeplabv3"]
+	path = deeplabv3
+	url = git@github.com:tldrafael/DeepLabV3Plus-Pytorch.git
+[submodule "pisss/segmentation_models_pytorch"]
+	path = segmentation_models_pytorch
+	url = git@github.com:tldrafael/segmentation_models.pytorch.git

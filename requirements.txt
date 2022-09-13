@@ -1,0 +1,5 @@
+torch==1.12
+torchvision==0.13
+scikit-image==0.18
+seaborn==0.11
+numpy==1.21

@@ -489,7 +489,7 @@ class TrainerClass(Trainer):
         self.ckpt_dirbase = ckpt_dirbase
 
 
-def load_model(modelpath, tr_params=None, ds_params=None, unet_encoder='resnet34', use_cpu=False):
+def load_model(modelpath, tr_params=None, ds_params=None, unet_encoder='resnet34', use_cpu=False, strict=False):
     n_classes = ds_params['n_classes'] - len(ds_params['void_classes'])
     if 'DeepLab' in modelpath:
         deeplabv3_method = re.search(r'.*(/DeepLab[-a-zA-Z0-9]+/).*', modelpath).group(1)
@@ -500,9 +500,9 @@ def load_model(modelpath, tr_params=None, ds_params=None, unet_encoder='resnet34
                          fl_maxpool=tr_params['fl_maxpool'])
 
     if use_cpu:
-        model.load_state_dict(torch.load(modelpath, map_location='cpu')['model_state'])
+        model.load_state_dict(torch.load(modelpath, map_location='cpu')['model_state'], strict=strict)
     else:
-        model.load_state_dict(torch.load(modelpath)['model_state'])
+        model.load_state_dict(torch.load(modelpath)['model_state'], strict=strict)
         model.cuda()
 
     model.eval()

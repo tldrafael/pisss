@@ -507,3 +507,17 @@ def load_model(modelpath, tr_params=None, ds_params=None, unet_encoder='resnet34
 
     model.eval()
     return model
+
+
+def load_deeplab_model(modelpath, tr_params=None, ds_params=None, encoder='resnet34', use_cpu=False, strict=False):
+    n_classes = ds_params['n_classes'] - len(ds_params['void_classes'])
+    model = eval('deeplabv3plus_{}'.format(encoder))(**tr_params, num_classes=n_classes)
+
+    if use_cpu:
+        model.load_state_dict(torch.load(modelpath, map_location='cpu')['model_state'], strict=strict)
+    else:
+        model.load_state_dict(torch.load(modelpath)['model_state'], strict=strict)
+        model.cuda()
+
+    model.eval()
+    return model

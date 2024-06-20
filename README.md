@@ -3,7 +3,7 @@
 
 [![](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11gFSR4SUHplTYNniChR6EV1SK0__ioQG?usp=sharing)
 
-This repo contains the code used for my master's dissertation, `A Performance Increment Strategy for Semantic Segmentation of Low-Resolution Images from Damaged Roads`. 
+This the official code repo for the paper `A Performance Increment Strategy for Semantic Segmentation of Low-Resolution Images from Damaged Roads`. 
 
 The code contains many utilities to test different training setups like loss functions, augmentation, and optimizers. Moreover, there are further modifications on the ResNet and DeepLabV3+ architectures on the forked submodules [smp_main](./smp_main) and [deeplabv3](./deeplabv3). Although this code looks like a framework, it was not designed to be so; thus, the code may not be tidy.
 
